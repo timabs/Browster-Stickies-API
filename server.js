@@ -20,8 +20,8 @@ app.use(
   )
 );
 app.use(express.json());
-app.use(cookieParser());
 app.use(userIDMiddleware);
+app.use(cookieParser());
 
 //routes
 app.get("/", (req, res) => {
