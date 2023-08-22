@@ -10,6 +10,18 @@ require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 5000;
+const allowedOrigins = ["https://stickynotes.lol"]; // Replace with your frontend domain
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true, // Important for handling cookies and other credentials
+};
 
 app.get("/", (req, res) => {
   res.send("brows stick");
@@ -21,7 +33,7 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(userIDMiddleware);
 
 //routes
