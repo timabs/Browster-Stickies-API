@@ -20,9 +20,9 @@ app.use(
   )
 );
 app.use(express.json());
+app.use(userIDMiddleware);
 app.use(cookieParser());
 app.use(cors());
-app.use(userIDMiddleware);
 
 //routes
 app.get("/", (req, res) => {
