@@ -4,7 +4,7 @@ const uIDMiddleware = (req, res, next) => {
   const userId = req.cookies.userId || generateNewUserId();
   res.cookie("userId", userId, {
     maxAge: 30 * 24 * 60 * 60 * 1000,
-    domain: "https://stickynotes.lol/",
+    domain: ".stickynotes.lol",
     secure: true,
     httpOnly: true,
     sameSite: "none",
