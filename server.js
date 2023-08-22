@@ -42,7 +42,7 @@ app.use("/api/v1/theCategories", theCategories);
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URI);
-    app.listen(port, "0.0.0.0", () => {
+    app.listen(port, () => {
       console.log("The server serves. yaas.");
     });
   } catch (error) {
