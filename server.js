@@ -20,6 +20,7 @@ app.use(
   )
 );
 app.use(express.json());
+app.use(cors());
 app.use(userIDMiddleware);
 app.use(cookieParser());
 
@@ -35,7 +36,6 @@ app.get("/", (req, res) => {
   );
 });
 
-app.use(cors());
 app.use("/api/v1/theTasks", theTasks);
 app.use("/api/v1/theCategories", theCategories);
 
