@@ -10,7 +10,7 @@ require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 5000;
-const allowedOrigins = ["https://stickynotes.lol"]; // Replace with your frontend domain
+const allowedOrigins = ["https://stickynotes.lol"];
 
 const corsOptions = {
   origin: function (origin, callback) {
