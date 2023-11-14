@@ -60,19 +60,6 @@ const deleteCategory = async (req, res) => {
   } catch (error) {}
 };
 
-// async function deleteCollection(collectionName) {
-//   try {
-// Delete the collection using the drop method
-//     await Category.collection.drop();
-//     console.log(`Collection '${collectionName}' deleted successfully.`);
-//   } catch (error) {
-//     console.error(`Error deleting collection '${collectionName}':`, error);
-//   }
-// }
-
-// Call the function to delete a collection by its name
-// deleteCollection('myCollection'); // Replace 'myCollection' with the actual collection name
-
 module.exports = {
   getAllCategories,
   createCategory,
