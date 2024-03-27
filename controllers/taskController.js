@@ -22,10 +22,10 @@ const createTask = async (req, res) => {
 };
 const deleteTask = async (req, res) => {
   try {
-    const { id: taskID } = req.params;
-    const taskToDelete = await Taskbase.findOneAndDelete({ _id: taskID });
+    const { id: taskId } = req.params;
+    const taskToDelete = await Taskbase.findOneAndDelete({ _id: taskId });
     if (!taskToDelete) {
-      return res.status(404).json({ msg: `No task with Id: ${taskID}` });
+      return res.status(404).json({ msg: `No task with Id: ${taskId}` });
     } else {
       res.status(200).json({ taskToDelete });
     }
@@ -35,10 +35,10 @@ const deleteTask = async (req, res) => {
 };
 const updateTask = async (req, res) => {
   try {
-    const { id: taskID } = req.params;
+    const { id: taskId } = req.params;
 
     const existingTask = await Taskbase.findOneAndUpdate(
-      { _id: taskID },
+      { _id: taskId },
       req.body,
       {
         new: true,
@@ -47,7 +47,7 @@ const updateTask = async (req, res) => {
     );
 
     if (!existingTask) {
-      return res.status(404).json({ msg: `No task with Id: ${taskID}` });
+      return res.status(404).json({ msg: `No task with Id: ${taskId}` });
     }
 
     res.status(200).json({ existingTask });

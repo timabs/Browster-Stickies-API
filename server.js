@@ -31,9 +31,9 @@ app.use(
     path.join(__dirname, "frontend", "Browser-Stickies-Frontend", "build")
   )
 );
-app.use(express.json());
-app.use(cookieParser());
 app.use(cors(corsOptions));
+app.use(express.json());
+//app.use(cookieParser());
 app.use(userIDMiddleware);
 
 //routes
